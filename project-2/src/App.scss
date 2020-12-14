@@ -1,0 +1,179 @@
+@import './uti';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+
+:root {
+    --font: 'Open Sans',
+        sans-serif;
+    --BrightBlue: hsl(220, 98%, 61%);
+    --VeryLightGray: hsl(0, 0%, 98%);
+    --VeryLightGrayishBlue: hsl(240, 6%, 94%);
+    --LightGrayishBlue: hsl(233, 11%, 84%);
+    --DarkGrayishBlue: hsl(236, 9%, 61%);
+    --VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+    --LightGrayishBluehover: hsl(235, 18%, 25%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+body {
+    line-height: 1.5;
+    background-color: var(--VeryLightGray);
+    font-family: var(--font);
+}
+
+#root {
+    height: 100vh;
+    @include flex-1;
+    padding: 1em;
+
+}
+
+.container {
+    max-width: 480px;
+    background-color: hsl(0, 0%, 100%);
+
+    @include box-shadow-2;
+    @include flex-2;
+    justify-content: space-between;
+
+    .img--section {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: var(--BrightBlue);
+        position: relative;
+        margin: 2em 0;
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            left: -20px;
+
+        }
+
+        span {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--BrightBlue);
+            @include flex-1;
+            left: -10px;
+
+            svg {
+                path {
+                    fill: var(--VeryLightGray);
+                }
+            }
+        }
+    }
+
+    .about--section {
+        margin-bottom: 1em;
+        text-align: center;
+
+        h2 {
+            text-transform: capitalize;
+            font-size: 1.2rem;
+            color: var(--VeryDarkGrayishBlue);
+            font-weight: 700;
+        }
+
+        p {
+            text-transform: uppercase;
+            color: var(--BrightBlue);
+            font-weight: 400;
+            letter-spacing: 4px;
+        }
+    }
+
+    article {
+        padding: 1em;
+
+        p {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-align: center;
+            color: var(--LightGrayishBluehover);
+            text-transform: capitalize;
+        }
+    }
+
+    .button--section {
+        margin-bottom: 1em;
+
+        button {
+            @include svg-button;
+            background-color:unset;
+            cursor: pointer;
+            margin-left: 1em;
+
+
+            svg {
+                width: 30px;
+                height: 30px;
+                pointer-events: none;
+
+                path {
+                    stroke: var(--BrightBlue);
+                    fill: var(--BrightBlue);
+                }
+            }
+
+        }
+    }
+
+    .random--section {
+        margin-bottom: 1em;
+
+        button {
+            @include button;
+            background-color: unset;
+            border-radius: 4px;
+            border: 1px solid var(--BrightBlue);
+            color: hsl(235, 18%, 25%);
+
+            &:hover {
+                background-color: var(--BrightBlue);
+
+                color: hsl(0, 0%, 100%);
+                border-radius: 5px;
+            }
+        }
+
+
+
+    }
+}
+
+@media screen and(min-width:481px){
+    .container{
+        max-width: 650px;
+    }
+}
